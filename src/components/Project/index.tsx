@@ -27,9 +27,18 @@ export const Project = (): JSX.Element => {
     const fetchData = async () => {
       const data: Response = await fetch(
         `https://api.github.com/users/${userData.githubUser}/repos`
-      )
+      );
+
+      const dataFinalProjectM5: Response = await fetch(
+        `https://api.github.com/users/${userData.githubUserM5}/repos`
+      );
 
       const json = await data.json();
+      console.log(json);
+      const jsonFinalProjectM5 = await dataFinalProjectM5.json();
+      console.log(jsonFinalProjectM5[0]);
+      json.push(jsonFinalProjectM5[0]);
+      console.log(json);
 
       setRepositories(json);
 
@@ -49,8 +58,8 @@ export const Project = (): JSX.Element => {
           <Text
             as="h2"
             type="heading3"
-            css={{ marginBottom: "$3" }}
-            color="grey1"
+            css={{ marginBottom: "$3", textShadow: "0px 0px 5px  lightgrey " }}
+            color="brand1"
           >
             {repository.name}
           </Text>
