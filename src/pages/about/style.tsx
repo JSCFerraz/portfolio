@@ -17,7 +17,7 @@ export const Header = styled("header", {
 
 export const HeaderContent = styled("div", {
   maxWidth: "100%",
-  width: "36rem",
+  width: "40rem",
   display: "flex",
   flexDirection: "column",
   gap: "$2",
@@ -27,10 +27,8 @@ export const HeaderButtonsArea = styled(Flex, {
   marginTop: "$2",
   "@mobile": {
     flexDirection: "column",
-    alignItems: "center",
     [`& ${Button}`]: {
       width: "100%",
-      maxWidth: "400px",
     },
   },
 });
@@ -86,7 +84,4 @@ export const ProjectAreaWrapperColumns = styled(Flex, {
   position: "relative",
   alignItems: "flex-start",
   flexDirection: "column",
-  // "@mobile": {
-  //   flexDirection: "column",
-  // },
 });
