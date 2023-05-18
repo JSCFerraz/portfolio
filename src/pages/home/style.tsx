@@ -9,7 +9,7 @@ export const Header = styled("header", {
   padding: "12rem 0 8rem 0",
   backgroundImage: `url(${img})`,
   backgroundRepeat: "no-repeat",
-  backgroundPosition: "bottom 1rem right 1rem",
+  backgroundPosition: "bottom 1.5rem right 1.5rem",
   "@mobile": {
     padding: "9rem 0 6rem 0",
   },
@@ -40,8 +40,9 @@ export const StackSection = styled("section", {
 
 export const StackCards = styled("div", {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-  padding: "3rem 0",
+  gridTemplateColumns: "auto auto auto auto auto auto",
+  justifyContent: "space-between",
+  padding: "3rem 0rem",
   gap: "2rem",
 
   "@mobile": {
@@ -56,35 +57,34 @@ export const ProjectsArea = styled("section", {
   padding: "4rem 0 8rem 0",
 });
 
-export const ProjectsAreaSocialMediaMessage = styled("aside", {
-  width: "32%",
+export const ProjectsAreaSocialMediaMessage = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "2rem",
-  position: "sticky",
-  top: "10rem",
 
   "@mobile": {
     width: "100%",
     position: "static",
-    order: "2",
-    marginTop: "5rem",
+    marginTop: "1rem",
   },
 });
 
 export const ProjectsAreaContent = styled("div", {
-  width: "60%",
-  paddingLeft: "4rem",
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 1fr)",
+  gridGap: "4rem",
   "@mobile": {
-    width: "100%",
-    paddingLeft: "0",
+    gridTemplateColumns: "1fr",
+    overflow: "hidden",
   },
 });
 
 export const ProjectAreaWrapperColumns = styled(Flex, {
   position: "relative",
   alignItems: "flex-start",
-  "@mobile": {
-    flexDirection: "column",
-  },
+  flexDirection: "column",
+  // "@mobile": {
+  //   flexDirection: "column",
+  // },
 });

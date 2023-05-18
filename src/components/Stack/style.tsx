@@ -8,8 +8,8 @@ const scaleUp = keyframes({
 });
 
 export const StackCard = styled("div", {
-  minWidth: "10.25rem",
-  maxWidth: "10.25rem",
+  minWidth: "8.25rem",
+  maxWidth: "8.25rem",
   borderRadius: "$1",
   padding: "1rem",
   background: "$whiteFixed",
