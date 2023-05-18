@@ -12,9 +12,12 @@ import {
 } from "./style";
 
 import { FaGithub, FaLinkedinIn, FaBars, FaWhatsapp } from "react-icons/fa";
+
+import { BiLogOut } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import { Button } from "@/styles/Buttons";
 import { Container } from "@/styles/Global";
+import { useNavigate } from "react-router-dom";
 
 export interface MenuButtonOpen {
   open: Boolean;
@@ -31,6 +34,9 @@ export const NavBar = (): JSX.Element => {
   const OpenMenu = () => {
     setOpen(!open);
   };
+
+  const isProjectWindow: boolean = window.location.href.includes("project");
+  const isAboutWindow: boolean = window.location.href.includes("about");
 
   return (
     <NavbarWrapper>
@@ -63,6 +69,7 @@ export const NavBar = (): JSX.Element => {
 };
 
 export const NavLinks = (): JSX.Element => {
+  const navigate = useNavigate();
   return (
     <NavbarLinks>
       {userData.whatsappNumber && (
@@ -98,6 +105,30 @@ export const NavLinks = (): JSX.Element => {
           href={`https://www.linkedin.com/in/${userData.linkedinUser}`}
         >
           <FaLinkedinIn />
+        </Button>
+      )}
+
+      {window.location.href.includes("project") && (
+        <Button
+          type="icon"
+          target="_blank"
+          as="a"
+          aria-label="Voltar"
+          onClick={() => navigate("/")}
+        >
+          <BiLogOut />
+        </Button>
+      )}
+
+      {window.location.href.includes("about") && (
+        <Button
+          type="icon"
+          target="_blank"
+          as="a"
+          aria-label="Voltar"
+          onClick={() => navigate("/")}
+        >
+          <BiLogOut />
         </Button>
       )}
     </NavbarLinks>

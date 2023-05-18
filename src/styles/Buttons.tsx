@@ -50,7 +50,7 @@ export const Button = styled("button", {
         },
       },
       circle: {
-        borderColor: "$grey5",
+        borderColor: "$brand1",
         backgroundColor: "$whiteFixed",
         borderRadius: "50%",
         padding: "0",
