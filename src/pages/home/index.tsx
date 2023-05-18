@@ -18,75 +18,56 @@ import {
   HeaderButtonsArea,
   StackSection,
   StackCards,
-  ProjectsArea,
-  ProjectsAreaSocialMediaMessage,
-  ProjectsAreaContent,
-  ProjectAreaWrapperColumns,
 } from "./style";
+import { NavBar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
 export const Home = (): JSX.Element => {
+  const navigate = useNavigate();
   return (
-    <main>
-      <Header>
-        <Container>
-          <HeaderContent>
-            <Text as="h1" type="heading1" color="grey5">
-              Criando experiências por meio da tecnologia{" "}
-            </Text>
-            <Text type="body1" color="grey4">
-              Sou estudante de programação na Kenzie Academy Brasil. Participei
-              de diversos projetos resolvendo problemas e desenvolvendo
-              habilidades.
-            </Text>
-            <HeaderButtonsArea>
-              <Button as="a" href="#projetos">
-                Projetos
-              </Button>
-              <Button as="a" href="#tecnologias">
-                Tecnologias
-              </Button>
-            </HeaderButtonsArea>
-          </HeaderContent>
-        </Container>
-      </Header>
-      <StackSection id="tecnologias">
-        <Container>
-          <Text as="h3" type="heading3" color="grey2">
-            Stacks
-          </Text>
-          <StackCards>
-            {stackData.map((stack, index) => (
-              <Stack key={index} title={stack.title} icon={stack.img} />
-            ))}
-          </StackCards>
-        </Container>
-      </StackSection>
-      <ProjectsArea id="projetos">
-        <Container>
-          <ProjectAreaWrapperColumns>
-            <ProjectsAreaSocialMediaMessage>
-              <Text
-                as="h3"
-                type="heading3"
-                color="grey2"
-                css={{ marginBottom: "$2" }}
-              >
-                Projetos
-                <Text as="h3" type="heading2" color="grey1">
-                  Precisão e{" "}
-                  <Text as="span" color="brand1" type="heading2">
-                    dedicação
-                  </Text>{" "}
-                  em cada detalhe!
-                </Text>
+    <>
+      <NavBar />
+      <main>
+        <Header>
+          <Container>
+            <HeaderContent>
+              <Text as="h1" type="heading1" color="grey5">
+                Criando experiências por meio da tecnologia{" "}
               </Text>
-            </ProjectsAreaSocialMediaMessage>
-            <ProjectsAreaContent>
-              <Project />
-            </ProjectsAreaContent>
-          </ProjectAreaWrapperColumns>
-        </Container>
-      </ProjectsArea>
-    </main>
+              <Text type="body1" color="grey4">
+                Sou estudante de programação na Kenzie Academy Brasil.
+                Participei de diversos projetos resolvendo problemas e
+                desenvolvendo habilidades.
+              </Text>
+              <HeaderButtonsArea>
+                <Button as="a" onClick={() => navigate("/projects")}>
+                  Projetos
+                </Button>
+                <Button as="a" href="#tecnologias">
+                  Tecnologias
+                </Button>
+                <Button as="a" onClick={() => navigate("/about")}>
+                  Sobre mim
+                </Button>
+              </HeaderButtonsArea>
+            </HeaderContent>
+          </Container>
+        </Header>
+        <StackSection id="tecnologias">
+          <Container>
+            <Text as="h3" type="heading3" color="grey2">
+              Stacks
+            </Text>
+            <StackCards>
+              {stackData.map((stack, index) => (
+                <Stack key={index} title={stack.title} icon={stack.img} />
+              ))}
+            </StackCards>
+          </Container>
+        </StackSection>
+      </main>
+      <Footer />
+    </>
   );
 };
