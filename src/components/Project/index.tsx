@@ -34,9 +34,9 @@ export const Project = (): JSX.Element => {
       );
 
       const json = await data.json();
-      console.log(json);
+
       const jsonFinalProjectM5 = await dataFinalProjectM5.json();
-      console.log(jsonFinalProjectM5[0]);
+
       json.push(jsonFinalProjectM5[0]);
       console.log(json);
 
@@ -79,7 +79,10 @@ export const Project = (): JSX.Element => {
             {repository.description}
           </Text>
           <ProjectLinks>
-            <ProjectLink target="_blank" href={repository.git_url}>
+            <ProjectLink
+              target="_blank"
+              href={`https${repository.git_url.substring(3)}`}
+            >
               <FaGithub /> Github Code
             </ProjectLink>
             {repository.homepage && (
